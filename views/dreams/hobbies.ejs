@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h2>Hobbies Goals</h2>
+<ul>
+  <% hobbies.forEach((hobby) => { %>
+    <li><%= hobby.name %></li>
+  <% }) %>
+</ul>
+<a href="/dreams/new-hobby">Create a New Dream</a>
+<%- include('../partials/footer') %>

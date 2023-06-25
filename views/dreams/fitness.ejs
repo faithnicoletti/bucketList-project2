@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h2>Fitness Goals</h2>
+<ul>
+  <% fitness.forEach((f) => { %>
+    <li><%= f.name %></li>
+  <% }) %>
+</ul>
+<a href="/dreams/new-fitness">Create a New Dream</a>
+<%- include('../partials/footer') %>
