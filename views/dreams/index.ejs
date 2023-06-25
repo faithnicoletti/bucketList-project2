@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h2>All Dreams</h2>
+<a href="/dreams/new">Create a New Dream</a>
+<ul>
+    <% dreams.forEach((dream) => { %>
+        <li><a href="/dreams/<%= dream.id %>"><%= dream.name %></a></li>
+    <% }) %>
+</ul>
+<%- include('../partials/footer') %>
