@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2>Career Details</h2>
+<p>Name: <%= career.name %></p>
+<p>Description: <%= career.description %></p>
+<p>Priority: <%= career.priority %></p>
+<a href="/dreams/careers/edit/<%= career.id %>">Edit</a>
+<%- include('../partials/footer') %>

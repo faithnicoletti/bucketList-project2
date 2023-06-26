@@ -2,7 +2,7 @@
 <h2>Hobbies Goals</h2>
 <ul>
   <% hobbies.forEach((hobby) => { %>
-    <li><%= hobby.name %></li>
+    <li><a href="/dreams/hobbies/<%= hobby.id %>"><%= hobby.name %></a></li>
   <% }) %>
 </ul>
 <a href="/dreams/new-hobby">Create a New Dream</a>

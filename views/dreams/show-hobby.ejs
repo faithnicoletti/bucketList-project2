@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2>Hobby Details</h2>
+<p>Name: <%= hobby.name %></p>
+<p>Description: <%= hobby.description %></p>
+<p>Priority: <%= hobby.priority %></p>
+<a href="/dreams/hobbies/edit/<%= hobby.id %>">Edit</a>
+<%- include('../partials/footer') %>

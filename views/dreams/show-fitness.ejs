@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2>Fitness Details</h2>
+<p>Name: <%= fitness.name %></p>
+<p>Description: <%= fitness.description %></p>
+<p>Priority: <%= fitness.priority %></p>
+<a href="/dreams/fitness/edit/<%= fitness.id %>">Edit</a>
+<%- include('../partials/footer') %>

@@ -2,7 +2,7 @@
 <h2>Travel Goals</h2>
 <ul>
   <% travels.forEach((travel) => { %>
-    <li><%= travel.name %></li>
+    <li><a href="/dreams/travels/<%= travel.id %>"><%= travel.name %></a></li>
   <% }) %>
 </ul>
 <a href="/dreams/new-travel">Create a New Dream</a>

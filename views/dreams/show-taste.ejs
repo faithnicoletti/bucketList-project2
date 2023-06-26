@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2>Taste Details</h2>
+<p>Name: <%= taste.name %></p>
+<p>Description: <%= taste.description %></p>
+<p>Priority: <%= taste.priority %></p>
+<a href="/dreams/taste/edit/<%= taste.id %>">Edit</a>
+<%- include('../partials/footer') %>

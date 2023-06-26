@@ -2,7 +2,7 @@
 <h2>Taste Goals</h2>
 <ul>
   <% taste.forEach((t) => { %>
-    <li><%= t.name %></li>
+    <li><a href="/dreams/taste/<%= taste.id %>"><%= taste.name %></a></li>
   <% }) %>
 </ul>
 <a href="/dreams/new-taste">Create a New Dream</a>

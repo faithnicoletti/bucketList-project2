@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2>Travel Details</h2>
+<p>Name: <%= travel.name %></p>
+<p>Description: <%= travel.description %></p>
+<p>Priority: <%= travel.priority %></p>
+<a href="/dreams/travels/edit/<%= travel.id %>">Edit</a>
+<%- include('../partials/footer') %>

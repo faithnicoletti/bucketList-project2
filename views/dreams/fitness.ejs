@@ -2,7 +2,7 @@
 <h2>Fitness Goals</h2>
 <ul>
   <% fitness.forEach((f) => { %>
-    <li><%= f.name %></li>
+    <li><a href="/dreams/fitness/<%= fitness.id %>"><%= fitness.name %></a></li>
   <% }) %>
 </ul>
 <a href="/dreams/new-fitness">Create a New Dream</a>
