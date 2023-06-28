@@ -5,6 +5,10 @@
 <p>Description: <%= hobby.description %></p>
 <p>Priority: <%= hobby.priority %></p>
 <a href="/dreams/hobbies/edit/<%= hobby.id %>">Edit</a>
+<form action="/dreams/hobbiesCompleted" method="POST">
+    <input type="hidden" name="hobbyId" value="<%= hobby.id %>">
+    <button id="complete-button">Complete</button>
+  </form>
 <form action="/dreams/hobbies/<%=hobby.id%>?_method=DELETE" method="POST">
     <input type="submit" value="X"/>
   </form>

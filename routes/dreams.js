@@ -55,12 +55,12 @@ router.get('/hobbies/:id', dreamsController.showHobby);
 router.get('/hobbies/edit/:id', dreamsController.editHobby);
 router.put('/hobbies/:id', dreamsController.updateHobby);
 router.delete('/hobbies/:id', dreamsController.deleteHobby);
-router.get('/careersCompleted', dreamsController.careersCompleted);
-router.post('/careersCompleted', dreamsController.createCompletedCareer);
-router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
-router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
-router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
-router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
+router.get('/hobbiesCompleted', dreamsController.hobbiessCompleted);
+router.post('/hobbiesCompleted', dreamsController.createCompletedHobby);
+router.get('/hobbiesCompleted/:id', dreamsController.showHobbyrCompleted);
+router.get('/hobbiesCompleted/edit/:id', dreamsController.editHobbyCompleted);
+router.put('/hobbiesCompleted/:id', dreamsController.updateHobbyCompleted);
+router.delete('/hobbiesCompleted/:id', dreamsController.deleteHobbyCompleted);
 
 router.get('/fitness', dreamsController.fitnessList); // Route for fitness schema
 router.get('/new-fitness', dreamsController.newFitness);

@@ -466,6 +466,99 @@ module.exports = {
           res.render('/dreams/taste', { errorMsg: err.message });
         }
       }
+    
+      async function tasteCompleted(req, res) {
+        try {
+          const taste = await Taste.find({completed: true});
+          res.render('dreams/tasteCompleted', { taste: taste });
+        } catch (err) {
+          console.log(err);
+          res.render('dreams/tasteCompleted', { errorMsg: err.message });
+        }
+      }
+    
+      function CompleteTasteButtonListener() {
+        const completeButton = document.getElementById('complete-button');
+      
+        completeButton.addEventListener('click', async () => {
+          try {
+            const tasteId = '<%= taste.id %>'; // Obtain the career ID dynamically
+      
+            const response = await fetch('/dreams/tasteCompleted', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ tasteId }),
+            });
+      
+            // Handle the response as needed
+          } catch (error) {
+            console.error('Error completing career:', error);
+            // Handle the error appropriately
+          }
+        });
+      }
+    
+      async function createCompletedTaste(req, res) {
+        try {
+          const { tasteId } = req.body;
+      
+          // Find the career by ID
+          const taste = await Taste.findById(tasteId);
+      
+          if (!taste) {
+            return res.status(404).json({ error: 'not found' });
+          }
+      
+          // Update the career's "completed" status to true
+          taste.completed = true;
+          await taste.save();
+      
+          // Respond with a success message or appropriate data
+          res.json({ message: 'completed successfully' });
+        } catch (error) {
+          console.error('Error completing :', error);
+          res.status(500).json({ error: 'Internal Server Error' });
+        }
+      }
+    
+      async function showTasteCompleted(req, res){
+        try {
+          const taste = await Taste.findById(req.params.id);
+          res.render('dreams/show-tasteCompleted', { taste });
+        } catch (err) {
+          console.log(err);
+          res.redirect('/dreams/tasteCompleted');
+        }
+      }
+    
+      async function editTasteCompleted(req, res) {
+        try {
+          const taste = await Taste.findById(req.params.id);
+          res.render('dreams/edit-tasteCompleted', { taste });
+        } catch (err) {
+          res.redirect('dreams/tasteCompleted/');
+        }
+      }
+    
+      async function updateTasteCompleted(req, res) {
+        try {
+            await Taste.findByIdAndUpdate(req.params.id, req.body)
+            res.redirect('/dreams/tasteCompleted/' + req.params.id)
+          }  catch (err) {
+            res.render(`/dreams/tasteCompleted/${req.params.id}/edit`, { errorMsg: err.message });
+          }
+        }
+        
+        async function deleteTasteCompleted(req, res) {
+          try {
+            await Taste.findByIdAndRemove(req.params.id);
+            res.redirect('/dreams/tasteCompleted');
+          }  catch (err) {
+            res.render('/dreams/tasteCompleted', { errorMsg: err.message });
+          }
+        }
 
 
 
@@ -533,6 +626,99 @@ module.exports = {
             res.render('/dreams/hobbies', { errorMsg: err.message });
           }
         }
+
+        async function hobbiesCompleted(req, res) {
+          try {
+            const hobbies = await Hobby.find({completed: true});
+            res.render('dreams/hobbiessCompleted', { hobbies: hobbies });
+          } catch (err) {
+            console.log(err);
+            res.render('dreams/careersCompleted', { errorMsg: err.message });
+          }
+        }
+      
+        function CompleteCareerButtonListener() {
+          const completeButton = document.getElementById('complete-button');
+        
+          completeButton.addEventListener('click', async () => {
+            try {
+              const careerId = '<%= career.id %>'; // Obtain the career ID dynamically
+        
+              const response = await fetch('/dreams/careersCompleted', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ careerId }),
+              });
+        
+              // Handle the response as needed
+            } catch (error) {
+              console.error('Error completing career:', error);
+              // Handle the error appropriately
+            }
+          });
+        }
+      
+        async function createCompletedCareer(req, res) {
+          try {
+            const { careerId } = req.body;
+        
+            // Find the career by ID
+            const career = await Career.findById(careerId);
+        
+            if (!career) {
+              return res.status(404).json({ error: 'Career not found' });
+            }
+        
+            // Update the career's "completed" status to true
+            career.completed = true;
+            await career.save();
+        
+            // Respond with a success message or appropriate data
+            res.json({ message: 'Career completed successfully' });
+          } catch (error) {
+            console.error('Error completing career:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+          }
+        }
+      
+        async function showCareerCompleted(req, res){
+          try {
+            const career = await Career.findById(req.params.id);
+            res.render('dreams/show-careerCompleted', { career });
+          } catch (err) {
+            console.log(err);
+            res.redirect('/dreams/careersCompleted');
+          }
+        }
+      
+        async function editCareerCompleted(req, res) {
+          try {
+            const career = await Career.findById(req.params.id);
+            res.render('dreams/edit-careerCompleted', { career });
+          } catch (err) {
+            res.redirect('dreams/careersCompleted/');
+          }
+        }
+      
+        async function updateCareerCompleted(req, res) {
+          try {
+              await Career.findByIdAndUpdate(req.params.id, req.body)
+              res.redirect('/dreams/careersCompleted/' + req.params.id)
+            }  catch (err) {
+              res.render(`/dreams/careersCompleted/${req.params.id}/edit`, { errorMsg: err.message });
+            }
+          }
+          
+          async function deleteCareerCompleted(req, res) {
+            try {
+              await Career.findByIdAndRemove(req.params.id);
+              res.redirect('/dreams/careersCompleted');
+            }  catch (err) {
+              res.render('/dreams/careersCompleted', { errorMsg: err.message });
+            }
+          }
 
 
 
