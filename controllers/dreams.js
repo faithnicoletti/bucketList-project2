@@ -55,7 +55,11 @@ module.exports = {
     
     careersCompleted, 
     createCompletedCareer, 
-    CompleteCareerButtonListener
+    CompleteCareerButtonListener, 
+    showCareerCompleted,
+    editCareerCompleted, 
+    updateCareerCompleted, 
+    deleteCareerCompleted
 };
 
 
@@ -434,4 +438,40 @@ async function careersList(req, res) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
-  
+
+  async function showCareerCompleted(req, res){
+    try {
+      const career = await Career.findById(req.params.id);
+      res.render('dreams/show-careerCompleted', { career });
+    } catch (err) {
+      console.log(err);
+      res.redirect('/dreams/careersCompleted');
+    }
+  }
+
+  async function editCareerCompleted(req, res) {
+    try {
+      const career = await Career.findById(req.params.id);
+      res.render('dreams/edit-careerCompleted', { career });
+    } catch (err) {
+      res.redirect('dreams/careersCompleted/');
+    }
+  }
+
+  async function updateCareerCompleted(req, res) {
+    try {
+        await Career.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect('/dreams/careersCompleted/' + req.params.id)
+    }  catch (err) {
+      res.render(`/dreams/careersCompleted/${req.params.id}/edit`, { errorMsg: err.message });
+    }
+  }
+
+  async function deleteCareerCompleted(req, res) {
+    try {
+      await Career.findByIdAndRemove(req.params.id);
+      res.redirect('/dreams/careersCompleted');
+    }  catch (err) {
+      res.render('/dreams/careersCompleted', { errorMsg: err.message });
+    }
+  }

@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<h2>Dream Journal Entry</h2>
+<form action="/dreams/careersCompleted/<%=career.id%>?_method=PUT" method="POST">
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" required>
+
+  <label for="description">Description:</label>
+  <textarea name="description" id="description" required></textarea>
+
+  <label for="comments">Thoughts/Comments:</label>
+  <textarea name="comments" id="comments" required></textarea>
+
+
+  <button type="submit">Upload entry</button>
+</form>
+
+<%- include('../partials/footer') %>

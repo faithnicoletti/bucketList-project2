@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<h1>WOOHOO YOU completed this dream!!!</h1>
+    <h2>Completed Career Details</h2>
+<p>Name: <%= career.name %></p>
+<p>Description: <%= career.description %></p>
+<p>Comments/thoughts upon completion: <%= career.comments %></p>
+<p>Upload photos: <%= career.photos %></p>
+  <a href="/dreams/careersCompleted/edit/<%= career.id %>">Edit</a><br>
+  <form action="/dreams/careersCompleted/<%=career.id%>?_method=DELETE" method="POST">
+    <input type="submit" value="X"/>
+  </form><br>
+
+<%- include('../partials/footer') %>

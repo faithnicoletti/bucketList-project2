@@ -4,6 +4,7 @@ const router = express.Router();
 const dreamsController = require('../controllers/dreams');
 
 router.get('/', dreamsController.index);
+router.get('/index-completed', dreamsController.indexCompleted);
 
 router.get('/careers', dreamsController.careersList); // Route for careers schema
 router.get('/new-career', dreamsController.newCareer);
@@ -12,9 +13,12 @@ router.get('/careers/:id', dreamsController.showCareer);
 router.get('/careers/edit/:id', dreamsController.editCareer);
 router.put('/careers/:id', dreamsController.updateCareer);
 router.delete('/careers/:id', dreamsController.deleteCareer);
-router.get('/index-completed', dreamsController.indexCompleted);
 router.get('/careersCompleted', dreamsController.careersCompleted);
 router.post('/careersCompleted', dreamsController.createCompletedCareer);
+router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
+router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
+router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
+router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
 
 router.get('/travels', dreamsController.travelsList); // Route for travels schema
 router.get('/new-travel', dreamsController.newTravel);
@@ -23,6 +27,12 @@ router.get('/travels/:id', dreamsController.showTravel);
 router.get('/travels/edit/:id', dreamsController.editTravel);
 router.put('/travels/:id', dreamsController.updateTravel);
 router.delete('/travels/:id', dreamsController.deleteTravel);
+router.get('/careersCompleted', dreamsController.careersCompleted);
+router.post('/careersCompleted', dreamsController.createCompletedCareer);
+router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
+router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
+router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
+router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
 
 router.get('/taste', dreamsController.tasteList); // Route for taste schema
 router.get('/new-taste', dreamsController.newTaste);
@@ -31,6 +41,12 @@ router.get('/taste/:id', dreamsController.showTaste);
 router.get('/taste/edit/:id', dreamsController.editTaste);
 router.put('/taste/:id', dreamsController.updateTaste);
 router.delete('/taste/:id', dreamsController.deleteTaste);
+router.get('/careersCompleted', dreamsController.careersCompleted);
+router.post('/careersCompleted', dreamsController.createCompletedCareer);
+router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
+router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
+router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
+router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
 
 router.get('/hobbies', dreamsController.hobbiesList); // Route for hobbies schema
 router.get('/new-hobby', dreamsController.newHobby);
@@ -39,6 +55,12 @@ router.get('/hobbies/:id', dreamsController.showHobby);
 router.get('/hobbies/edit/:id', dreamsController.editHobby);
 router.put('/hobbies/:id', dreamsController.updateHobby);
 router.delete('/hobbies/:id', dreamsController.deleteHobby);
+router.get('/careersCompleted', dreamsController.careersCompleted);
+router.post('/careersCompleted', dreamsController.createCompletedCareer);
+router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
+router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
+router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
+router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
 
 router.get('/fitness', dreamsController.fitnessList); // Route for fitness schema
 router.get('/new-fitness', dreamsController.newFitness);
@@ -47,6 +69,12 @@ router.get('/fitness/:id', dreamsController.showFitness);
 router.get('/fitness/edit/:id', dreamsController.editFitness);
 router.put('/fitness/:id', dreamsController.updateFitness);
 router.delete('/fitness/:id', dreamsController.deleteFitness);
+router.get('/careersCompleted', dreamsController.careersCompleted);
+router.post('/careersCompleted', dreamsController.createCompletedCareer);
+router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
+router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
+router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
+router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
 
 module.exports = router;
 
