@@ -27,12 +27,12 @@ router.get('/travels/:id', dreamsController.showTravel);
 router.get('/travels/edit/:id', dreamsController.editTravel);
 router.put('/travels/:id', dreamsController.updateTravel);
 router.delete('/travels/:id', dreamsController.deleteTravel);
-router.get('/careersCompleted', dreamsController.careersCompleted);
-router.post('/careersCompleted', dreamsController.createCompletedCareer);
-router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
-router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
-router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
-router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
+router.get('/travelsCompleted', dreamsController.travelsCompleted);
+router.post('/travelsCompleted', dreamsController.createCompletedTravel);
+router.get('/travelsCompleted/:id', dreamsController.showTravelCompleted);
+router.get('/travelsCompleted/edit/:id', dreamsController.editTravelCompleted);
+router.put('/travelsCompleted/:id', dreamsController.updateTravelCompleted);
+router.delete('/travelsCompleted/:id', dreamsController.deleteTravelCompleted);
 
 router.get('/taste', dreamsController.tasteList); // Route for taste schema
 router.get('/new-taste', dreamsController.newTaste);
@@ -41,12 +41,12 @@ router.get('/taste/:id', dreamsController.showTaste);
 router.get('/taste/edit/:id', dreamsController.editTaste);
 router.put('/taste/:id', dreamsController.updateTaste);
 router.delete('/taste/:id', dreamsController.deleteTaste);
-router.get('/careersCompleted', dreamsController.careersCompleted);
-router.post('/careersCompleted', dreamsController.createCompletedCareer);
-router.get('/careersCompleted/:id', dreamsController.showCareerCompleted);
-router.get('/careersCompleted/edit/:id', dreamsController.editCareerCompleted);
-router.put('/careersCompleted/:id', dreamsController.updateCareerCompleted);
-router.delete('/careersCompleted/:id', dreamsController.deleteCareerCompleted);
+router.get('/tasteCompleted', dreamsController.tasteCompleted);
+router.post('/tasteCompleted', dreamsController.createCompletedTaste);
+router.get('/tasteCompleted/:id', dreamsController.showTasteCompleted);
+router.get('/tasteCompleted/edit/:id', dreamsController.editTasteCompleted);
+router.put('/tasteCompleted/:id', dreamsController.updateTasteCompleted);
+router.delete('/tasteCompleted/:id', dreamsController.deleteTasteCompleted);
 
 router.get('/hobbies', dreamsController.hobbiesList); // Route for hobbies schema
 router.get('/new-hobby', dreamsController.newHobby);
