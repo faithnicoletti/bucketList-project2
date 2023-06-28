@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h2>Taste Goals</h2>
+<ul>
+  <% taste.forEach((t) => { %>
+    <li><a href="/dreams/taste/<%= taste.id %>"><%= taste.name %></a></li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

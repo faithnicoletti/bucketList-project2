@@ -5,4 +5,7 @@
 <p>Description: <%= fitness.description %></p>
 <p>Priority: <%= fitness.priority %></p>
 <a href="/dreams/fitness/edit/<%= fitness.id %>">Edit</a>
+<form action="/dreams/fitness/<%=fitness.id%>?_method=DELETE" method="POST">
+    <input type="submit" value="X"/>
+  </form>
 <%- include('../partials/footer') %>

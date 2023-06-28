@@ -12,6 +12,11 @@ const fitnessSchema = new Schema ({
         required: true
     },
     priority: Number,
+    comments: String, 
+    completed: {
+        type: Boolean,
+        default: false
+    }
 }, {timestamps: true});
 
 module.exports = mongoose.model('Fitness', fitnessSchema);

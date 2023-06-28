@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h2>Travel Goals</h2>
+<ul>
+  <% travels.forEach((travel) => { %>
+    <li><a href="/dreams/travels/<%= travel.id %>"><%= travel.name %></a></li>
+  <% }) %>
+</ul>
+<%- include('../partials/footer') %>

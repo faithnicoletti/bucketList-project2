@@ -4,5 +4,13 @@
 <p>Name: <%= career.name %></p>
 <p>Description: <%= career.description %></p>
 <p>Priority: <%= career.priority %></p>
-<a href="/dreams/careers/edit/<%= career.id %>">Edit</a>
+<a href="/dreams/careers/edit/<%= career.id %>">Edit</a><br>
+<form action="/dreams/careersCompleted" method="POST">
+    <input type="hidden" name="careerId" value="<%= career.id %>">
+    <button id="complete-button">Complete</button>
+  </form>
+<form action="/dreams/careers/<%=career.id%>?_method=DELETE" method="POST">
+    <input type="submit" value="X"/>
+  </form><br>
+
 <%- include('../partials/footer') %>

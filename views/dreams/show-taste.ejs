@@ -5,4 +5,7 @@
 <p>Description: <%= taste.description %></p>
 <p>Priority: <%= taste.priority %></p>
 <a href="/dreams/taste/edit/<%= taste.id %>">Edit</a>
+<form action="/dreams/taste/<%=taste.id%>?_method=DELETE" method="POST">
+    <input type="submit" value="X"/>
+  </form>
 <%- include('../partials/footer') %>
