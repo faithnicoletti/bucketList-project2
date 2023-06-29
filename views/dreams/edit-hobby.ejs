@@ -1,17 +1,19 @@
 <%- include('../partials/header') %>
-<h2>Edit Dream</h2>
+<h2 class="mt-5 mb-5 ms-3 shadow-sm">Edit Personal Growth Pursuit</h2>
 <form action="/dreams/hobbies/<%=hobby.id%>?_method=PUT" method="POST">
-
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" required>
-
-  <label for="description">Description:</label>
-  <textarea name="description" id="description" required></textarea>
-
-  <label for="priority">Priority:</label>
-  <input type="number" name="priority" id="priority" required>
-
-  <button type="submit">Create Dream</button>
+  <div class="mb-3 ms-4 me-4 mt-5">
+    <label for="InputName" class="form-label">Name:</label>
+    <input type="text" class="form-control" id="InputName" required>
+  </div>
+  <div class="mb-3 ms-4 me-4">
+    <label for="InputDescription" class="form-label">Description</label>
+    <input type="description" class="form-control" id="InputDescription">
+  </div>
+  <div class="mb-3 mt-5 form-check">
+    <input type="number" class="form-priority-input" id="priority">
+    <label class="form-priority-label" for="priority">Priority:</label>
+  </div>
+  <button type="submit" class="mb-3 ms-4 me-4 mt-4 btn btn-outline-dark">Update</button>
 </form>
 
 <%- include('../partials/footer') %>

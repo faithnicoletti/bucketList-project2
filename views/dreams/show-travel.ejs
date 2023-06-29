@@ -21,7 +21,7 @@
           <button type="button" class="w-100 btn btn-lg btn-outline-secondary">Edit</button>
         </a>   
         <form action="/dreams/travelsCompleted" method="POST">
-          <input type="hidden" name="travelId" value="<%= career.id %>">
+          <input type="hidden" name="travelId" value="<%= travel.id %>">
           <button type="button" class="w-100 btn btn-lg btn-outline-dark" id="complete-button">Complete</button>
         </form>
         <form action="/dreams/travels/<%=travel.id%>?_method=DELETE" method="POST">
