@@ -1,20 +1,26 @@
 <%- include('../partials/header') %>
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h2 class="display-5 fw-normal text-body-emphasis shadow-lg m-10">Personal Growth: Completed</h2>
+  <h1 class="display-4 fw-normal text-body-emphasis shadow-sm m-5">Personal Growth: Completed</h1>
   </div>
-  <div class="row row-cols-3 row-cols-md-3 mb-3 text-center justify-content-center align-items-center" style="margin: 0 auto;" >
-    <div class="col justify-content-center">
-      <div class="card mb-6 mt-6 rounded-5 shadow-lg justify-content-center">
-    <ul class="list-unstyled mt-4 mb-4">
-      <% hobbies.forEach((hobby) => { %>
-        <li>
-          <a href="/dreams/hobbiesCompleted/<%= hobby.id %>">
-            <button type="button" class="w-50 m-1 btn btn-md btn-outline-dark"><%= hobby.name %></button>
-          </a>
-        </li>
-      <% }) %>
-    </ul>
-  </div>  
+<div class="row row-cols-2 row-cols-md-3 mb-3 text-center justify-content-center align-items-center">
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">Completed Goals Listed:</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-4 mb-4">
+          <% hobbies.forEach((hobby) => { %>
+            <li>
+              <a href="/dreams/hobbiesCompleted/<%= hobby.id %>">
+                <button type="button" class="w-50 m-1 btn btn-md btn-outline-dark"><%= hobby.name %></button>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>         
+  </div>
 <!-- <h2>Hobbies Goals</h2>
 <ul>
   <% hobbies.forEach((hobby) => { %>
