@@ -1,5 +1,12 @@
 <%- include('./partials/header') %>
-    <h1><%= title %></h1>
-    <p>Welcome to your personalized <%= title %></p>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main class="px-3">
+      <h1><%= title %></h1>
+      <p class="lead">Welcome to your personalized <%= title %></p>
+      <p class="lead">
+        <a href="/dreams" class="btn btn-lg btn-light fw-bold border-white bg-white">Let's get started...</a>
+      </p>
+    </main>
+  </div>
 <%- include('./partials/footer') %>
 

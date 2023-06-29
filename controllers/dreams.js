@@ -646,7 +646,7 @@ module.exports = {
         async function hobbiesCompleted(req, res) {
           try {
             const hobbies = await Hobby.find({completed: true});
-            res.render('dreams/hobbiessCompleted', { hobbies: hobbies });
+            res.render('dreams/hobbiesCompleted', { hobbies: hobbies });
           } catch (err) {
             console.log(err);
             res.render('dreams/careersCompleted', { errorMsg: err.message });

@@ -1,16 +1,21 @@
 <%- include('../partials/header') %>
 
-<h2>Career Details</h2>
-<p>Name: <%= career.name %></p>
-<p>Description: <%= career.description %></p>
-<p>Priority: <%= career.priority %></p>
-<a href="/dreams/careers/edit/<%= career.id %>">Edit</a><br>
+<h2 class="m-5">Career Details</h2>
+<p class="ms-5">Name: <%= career.name %></p>
+<p class="ms-5">Description: <%= career.description %></p>
+<p class="ms-5">Priority: <%= career.priority %></p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<a href="/dreams/careers/edit/<%= career.id %>">Edit</a>
+</div>
+<div class="d-grid gap-2 d-md-flex me-10 ms-15">
 <form action="/dreams/careersCompleted" method="POST">
     <input type="hidden" name="careerId" value="<%= career.id %>">
     <button id="complete-button">Complete</button>
   </form>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 <form action="/dreams/careers/<%=career.id%>?_method=DELETE" method="POST">
     <input type="submit" value="X"/>
   </form><br>
-
+</div>
 <%- include('../partials/footer') %>
