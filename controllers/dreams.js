@@ -73,7 +73,23 @@ module.exports = {
     showTasteCompleted,
     editTasteCompleted, 
     updateTasteCompleted, 
-    deleteTasteCompleted
+    deleteTasteCompleted, 
+
+    hobbiesCompleted, 
+    createCompletedHobby, 
+    CompleteHobbyButtonListener, 
+    showHobbyCompleted,
+    editHobbyCompleted, 
+    updateHobbyCompleted, 
+    deleteHobbyCompleted,
+
+    fitnessCompleted, 
+    createCompletedFitness, 
+    CompleteFitnessButtonListener, 
+    showFitnessCompleted,
+    editFitnessCompleted, 
+    updateFitnessCompleted, 
+    deleteFitnessCompleted, 
   };
   
   
@@ -637,19 +653,19 @@ module.exports = {
           }
         }
       
-        function CompleteCareerButtonListener() {
+        function CompleteHobbyButtonListener() {
           const completeButton = document.getElementById('complete-button');
         
           completeButton.addEventListener('click', async () => {
             try {
-              const careerId = '<%= career.id %>'; // Obtain the career ID dynamically
+              const hobbyId = '<%= hobby.id %>'; // Obtain the career ID dynamically
         
-              const response = await fetch('/dreams/careersCompleted', {
+              const response = await fetch('/dreams/hobbiesCompleted', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ careerId }),
+                body: JSON.stringify({ hobbyId }),
               });
         
               // Handle the response as needed
@@ -660,63 +676,63 @@ module.exports = {
           });
         }
       
-        async function createCompletedCareer(req, res) {
+        async function createCompletedHobby(req, res) {
           try {
-            const { careerId } = req.body;
+            const { hobbyId } = req.body;
         
             // Find the career by ID
-            const career = await Career.findById(careerId);
+            const hobby = await Hobby.findById(hobbyId);
         
-            if (!career) {
-              return res.status(404).json({ error: 'Career not found' });
+            if (!hobby) {
+              return res.status(404).json({ error: 'not found' });
             }
         
             // Update the career's "completed" status to true
-            career.completed = true;
-            await career.save();
+            hobby.completed = true;
+            await hobby.save();
         
             // Respond with a success message or appropriate data
-            res.json({ message: 'Career completed successfully' });
+            res.json({ message: 'Completed successfully' });
           } catch (error) {
-            console.error('Error completing career:', error);
+            console.error('Error completing:', error);
             res.status(500).json({ error: 'Internal Server Error' });
           }
         }
       
-        async function showCareerCompleted(req, res){
+        async function showHobbyCompleted(req, res){
           try {
-            const career = await Career.findById(req.params.id);
-            res.render('dreams/show-careerCompleted', { career });
+            const hobby = await Hobby.findById(req.params.id);
+            res.render('dreams/show-hobbyCompleted', { hobby });
           } catch (err) {
             console.log(err);
-            res.redirect('/dreams/careersCompleted');
+            res.redirect('/dreams/hobbiesCompleted');
           }
         }
       
-        async function editCareerCompleted(req, res) {
+        async function editHobbyCompleted(req, res) {
           try {
-            const career = await Career.findById(req.params.id);
-            res.render('dreams/edit-careerCompleted', { career });
+            const hobby = await Hobby.findById(req.params.id);
+            res.render('dreams/edit-hobbyCompleted', { hobby });
           } catch (err) {
-            res.redirect('dreams/careersCompleted/');
+            res.redirect('dreams/hobbiesCompleted/');
           }
         }
       
-        async function updateCareerCompleted(req, res) {
+        async function updateHobbyCompleted(req, res) {
           try {
-              await Career.findByIdAndUpdate(req.params.id, req.body)
-              res.redirect('/dreams/careersCompleted/' + req.params.id)
+              await Hobby.findByIdAndUpdate(req.params.id, req.body)
+              res.redirect('/dreams/hobbiesCompleted/' + req.params.id)
             }  catch (err) {
-              res.render(`/dreams/careersCompleted/${req.params.id}/edit`, { errorMsg: err.message });
+              res.render(`/dreams/hobbiesCompleted/${req.params.id}/edit`, { errorMsg: err.message });
             }
           }
           
-          async function deleteCareerCompleted(req, res) {
+          async function deleteHobbyCompleted(req, res) {
             try {
-              await Career.findByIdAndRemove(req.params.id);
-              res.redirect('/dreams/careersCompleted');
+              await Hobby.findByIdAndRemove(req.params.id);
+              res.redirect('/dreams/hobbiesCompleted');
             }  catch (err) {
-              res.render('/dreams/careersCompleted', { errorMsg: err.message });
+              res.render('/dreams/hobbiesCompleted', { errorMsg: err.message });
             }
           }
 
@@ -784,3 +800,97 @@ async function deleteFitness(req, res) {
       res.render('/dreams/fitness', { errorMsg: err.message });
     }
   }
+
+  async function fitnessCompleted(req, res) {
+    try {
+      const fitness = await Fitness.find({completed: true});
+      res.render('dreams/fitnessCompleted', { fitness: fitness });
+    } catch (err) {
+      console.log(err);
+      res.render('dreams/fitnessCompleted', { errorMsg: err.message });
+    }
+  }
+
+  function CompleteFitnessButtonListener() {
+    const completeButton = document.getElementById('complete-button');
+  
+    completeButton.addEventListener('click', async () => {
+      try {
+        const fitnessId = '<%= fitness.id %>'; // Obtain the career ID dynamically
+  
+        const response = await fetch('/dreams/fitnessCompleted', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fitnessId }),
+        });
+  
+        // Handle the response as needed
+      } catch (error) {
+        console.error('Error completing:', error);
+        // Handle the error appropriately
+      }
+    });
+  }
+
+  async function createCompletedFitness(req, res) {
+    try {
+      const { fitnessId } = req.body;
+  
+      // Find the career by ID
+      const fitness = await Fitness.findById(fitnessId);
+  
+      if (!fitness) {
+        return res.status(404).json({ error: 'not found' });
+      }
+  
+      // Update the career's "completed" status to true
+      fitness.completed = true;
+      await fitness.save();
+  
+      // Respond with a success message or appropriate data
+      res.json({ message: 'Completed successfully' });
+    } catch (error) {
+      console.error('Error completing:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
+  async function showFitnessCompleted(req, res){
+    try {
+      const fitness = await Fitness.findById(req.params.id);
+      res.render('dreams/show-fitnessCompleted', { fitness });
+    } catch (err) {
+      console.log(err);
+      res.redirect('/dreams/fitnessCompleted');
+    }
+  }
+
+  async function editFitnessCompleted(req, res) {
+    try {
+      const fitness = await Fitness.findById(req.params.id);
+      res.render('dreams/edit-fitnessCompleted', { fitness });
+    } catch (err) {
+      res.redirect('dreams/fitnessCompleted/');
+    }
+  }
+
+  async function updateFitnessCompleted(req, res) {
+    try {
+        await Fitness.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect('/dreams/fitnessCompleted/' + req.params.id)
+      }  catch (err) {
+        res.render(`/dreams/fitnessCompleted/${req.params.id}/edit`, { errorMsg: err.message });
+      }
+    }
+    
+    async function deleteFitnessCompleted(req, res) {
+      try {
+        await Fitness.findByIdAndRemove(req.params.id);
+        res.redirect('/dreams/fitnessCompleted');
+      }  catch (err) {
+        res.render('/dreams/fitnessCompleted', { errorMsg: err.message });
+      }
+    }
+    
