@@ -8,7 +8,7 @@ You can mark your goals as complete once achieved,
 
 ## Link to Hosted App
 
-You can access the hosted app at: 
+You can access the hosted app at: https://white-field-5993.fly.dev/
 
 ## Technologies Used
 
