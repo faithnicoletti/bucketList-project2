@@ -16,7 +16,8 @@ const hobbySchema = new Schema ({
     completed: {
         type: Boolean,
         default: false
-    }
+    },
+    photos: [String]
 }, {timestamps: true});
 
 module.exports = mongoose.model('Hobby', hobbySchema);

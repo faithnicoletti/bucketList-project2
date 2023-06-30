@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
-
-
-
 const careerSchema = new Schema ({
     name: {
         type: String,
@@ -20,7 +16,8 @@ const careerSchema = new Schema ({
     completed: {
         type: Boolean,
         default: false
-    }
+    }, 
+    photos: [String]
 }, {timestamps: true});
 
 module.exports = mongoose.model('Career', careerSchema);

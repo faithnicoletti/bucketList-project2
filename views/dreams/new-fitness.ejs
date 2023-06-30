@@ -1,36 +1,26 @@
 <%- include('../partials/header') %>
-
-<h2 class="mt-5 mb-5 ms-3 shadow-sm">Create a New Dream</h2>
-<form action="/dreams/fitness" method="POST">
-  <div class="mb-3 ms-4 me-4 mt-5">
-    <label for="InputName" class="form-label">Name:</label>
-    <input type="text" class="form-control" id="InputName" required>
+<div class="align-items-center justify-content-center">
+  <h2 class="mt-5 mb-5 ms-3 shadow-sm">Create a New Dream</h2>
+  <form action="/dreams/fitness" method="POST">
+    <div class="mb-3 ms-4 me-4 mt-5">
+      <label for="name"><strong>Name:</strong></label>
+      <ul>
+        <input type="text" name="name" id="name" required>
+        </ul>
+    </div>
+    <div class="mb-3 ms-4 me-4">
+      <label for="description"><strong>Description:</strong></label>
+      <ul>
+        <textarea name="description" id="description"></textarea>
+      </ul>
+    </div>
+    <div class="mb-3 ms-1 me-4 form-check">
+      <label for="priority"><strong>Priority:</strong></label>
+      <ul>
+        <input type="number" name="priority" id="priority" required>
+      </ul>
+    </div>
+    <button type="submit" class="mb-3 ms-4 me-4 mt-4 btn btn-outline-dark justify-content-end">Create Dream</button>
+  </form>
   </div>
-  <div class="mb-3 ms-4 me-4">
-    <label for="InputDescription" class="form-label">Description</label>
-    <input type="description" class="form-control" id="InputDescription">
-    <!-- <textarea name="description" id="description" required></textarea> -->
-  </div>
-  <div class="mb-3 mt-5 form-check">
-    <input type="number" class="form-priority-input" id="priority">
-    <label class="form-priority-label" for="priority">Priority:</label>
-  </div>
-  <button type="submit" class="mb-3 ms-4 me-4 mt-4 btn btn-outline-dark">Create Dream</button>
-</form>
-
-<!-- <h2>Create a New Dream</h2>
-<form action="/dreams/fitness" method="POST">
-
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" required>
-
-  <label for="description">Description:</label>
-  <textarea name="description" id="description" required></textarea>
-
-  <label for="priority">Priority:</label>
-  <input type="number" name="priority" id="priority" required>
-
-  <button type="submit">Create Dream</button>
-</form> -->
-
 <%- include('../partials/footer') %>

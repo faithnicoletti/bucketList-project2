@@ -1,4 +1,7 @@
 <%- include('../partials/header') %>
+<a href="/dreams/hobbies">
+  <button class="w-20 m-2 btn btn-sm btn-outline-dark">Back</button>
+</a>
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
   <h1 class="display-4 fw-normal text-body-emphasis shadow-sm m-5">Personal Growth</h1>
   </div>
@@ -18,29 +21,16 @@
       </div>
       <div class="justify-content-end">
         <a href="/dreams/hobbies/edit/<%= hobby.id %>">
-          <button type="button" class="w-100 btn btn-lg btn-outline-secondary">Edit</button>
+          <button class="w-100 btn btn-lg btn-outline-dark">Edit</button>
         </a>   
         <form action="/dreams/hobbiesCompleted" method="POST">
           <input type="hidden" name="hobbyId" value="<%= hobby.id %>">
-          <button type="button" class="w-100 btn btn-lg btn-outline-dark" id="complete-button">Complete</button>
+          <button class="w-100 btn btn-lg btn-outline-success" id="complete-button">Complete</button>
         </form>
         <form action="/dreams/hobbies/<%=hobby.id%>?_method=DELETE" method="POST">
-          <input type="hidden" value="X"/>
-          <button type="button" class="w-100 btn btn-lg btn-outline-danger">Delete</button>
+          <button type="submit" class="w-100 btn btn-lg btn-outline-danger">Delete</button>
         </form>   
       </div>
     </div>         
   </div>
-<!-- <h2>Hobby Details</h2>
-<p>Name: <%= hobby.name %></p>
-<p>Description: <%= hobby.description %></p>
-<p>Priority: <%= hobby.priority %></p>
-<a href="/dreams/hobbies/edit/<%= hobby.id %>">Edit</a>
-<form action="/dreams/hobbiesCompleted" method="POST">
-    <input type="hidden" name="hobbyId" value="<%= hobby.id %>">
-    <button id="complete-button">Complete</button>
-  </form>
-<form action="/dreams/hobbies/<%=hobby.id%>?_method=DELETE" method="POST">
-    <input type="submit" value="X"/>
-  </form> -->
 <%- include('../partials/footer') %>

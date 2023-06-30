@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<a href="/dreams/hobbiesCompleted/:id">
+    <button class="w-20 m-2 btn btn-sm btn-outline-dark">Back</button>
+  </a>
+<h2 class="mt-5 mb-5 ms-3 shadow-sm">Let's Celebrate your Achievement!</h2>
+<form action="/dreams/hobbiesCompleted/<%=hobby.id %>?_method=PUT " method="POST">
+    <div class="mb-3 ms-4 me-4 mt-5">
+      <input type="text" name="InputName" value="<%= hobby.name %>" required>
+      <label for="InputName">Name:</label>
+    </div>
+    <div class="mb-3 ms-4 me-4">
+      <textarea name="description" rows="3" value="<%= hobby.description %>"></textarea>
+      <label for="description">Description:</label>
+    </div>
+    <div class="mb-3 ms-4 me-4">
+      <textarea name="comments" rows="3"></textarea>
+      <label for="comments">Thoughts/Comments:</label>
+    </div>
+    <div class="mb-3 ms-4 me-4">
+      <label for="Photos">Upload Photos:</label>
+      <input type="file" id="Photos" accept=".png, .jpg, .jpeg" multiple>
+    </div>
+    <button type="submit" class="mb-3 ms-4 me-4 mt-4 btn btn-outline-dark">Log Entry</button>
+  </form>
+<%- include('../partials/footer') %>

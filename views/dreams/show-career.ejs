@@ -1,7 +1,10 @@
 <%- include('../partials/header') %>
+<a href="/dreams/careers">
+  <button class="w-20 m-2 btn btn-sm btn-outline-dark">Back</button>
+</a>
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
   <h1 class="display-4 fw-normal text-body-emphasis shadow-sm m-5">Professional Milestones</h1>
-  </div>
+</div>
 <div class="row row-cols-2 row-cols-md-3 mb-3 text-center justify-content-center align-items-center">
   <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm">
@@ -18,35 +21,17 @@
       </div>
       <div class="justify-content-end">
         <a href="/dreams/careers/edit/<%= career.id %>">
-          <button type="button" class="w-100 btn btn-lg btn-outline-secondary">Edit</button>
+          <button class="w-100 btn btn-lg btn-outline-dark">Edit</button>
         </a>   
         <form action="/dreams/careersCompleted" method="POST">
           <input type="hidden" name="careerId" value="<%= career.id %>">
-          <button type="button" class="w-100 btn btn-lg btn-outline-dark" id="complete-button">Complete</button>
+          <button class="w-100 btn btn-lg btn-outline-success" id="complete-button">Complete</button>
         </form>
         <form action="/dreams/careers/<%=career.id%>?_method=DELETE" method="POST">
-          <input type="hidden" value="X"/>
-          <button type="button" class="w-100 btn btn-lg btn-outline-danger">Delete</button>
+          <button type="submit" class="w-100 btn btn-lg btn-outline-danger">Delete</button>
         </form>   
       </div>
     </div>         
   </div>
-<!-- <h2 class="m-5">Career Details</h2>
-<p class="ms-5">Name: <%= career.name %></p>
-<p class="ms-5">Description: <%= career.description %></p>
-<p class="ms-5">Priority: <%= career.priority %></p>
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<a href="/dreams/careers/edit/<%= career.id %>">Edit</a>
 </div>
-<div class="d-grid gap-2 d-md-flex me-10 ms-15">
-<form action="/dreams/careersCompleted" method="POST">
-    <input type="hidden" name="careerId" value="<%= career.id %>">
-    <button id="complete-button">Complete</button>
-  </form>
-</div>
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<form action="/dreams/careers/<%=career.id%>?_method=DELETE" method="POST">
-    <input type="submit" value="X"/>
-  </form><br>
-</div> -->
 <%- include('../partials/footer') %>

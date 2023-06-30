@@ -1,4 +1,7 @@
 <%- include('../partials/header') %>
+<a href="/dreams/index-completed">
+  <button class="w-20 m-2 btn btn-sm btn-outline-dark">Back</button>
+</a>
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
   <h1 class="display-4 fw-normal text-body-emphasis shadow-sm m-5">Professional Milestones: Completed</h1>
   </div>
@@ -6,7 +9,7 @@
   <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm">
       <div class="card-header py-3">
-        <h4 class="my-0 fw-normal">Completed Goals Listed:</h4>
+        <h4 class="my-0 fw-normal">Completed:</h4>
       </div>
       <div class="card-body">
         <ul class="list-unstyled mt-4 mb-4">
@@ -21,12 +24,4 @@
       </div>
     </div>         
   </div>
-
-
-<!-- <h2>Career Completed</h2>
-<ul>
-  <% careers.forEach((career) => { %>
-    <li><a href="/dreams/careersCompleted/<%= career.id %>"><%= career.name %></a></li>
-  <% }) %>
-</ul> -->
 <%- include('../partials/footer') %>
